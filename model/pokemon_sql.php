@@ -73,7 +73,7 @@ class PokemonModelSQL {
 
         $context = stream_context_create($options);
 
-        $content = file_get_contents($url);
+        $content = file_get_contents($url, false, $context);
         $data = json_decode($content, true);
 
         if (!isset($data['pokedex_id'])) {

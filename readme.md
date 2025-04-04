@@ -1,11 +1,26 @@
-# Consignes
+# Fonctionnement actuel
 
-Dans ce repository, le code du pokedex suivant le pattern MVC. Il est fonctionnel.
+## Architecture MVC mis en place.
 
-1. Vous devez modifier la connexion à la base de données via `new PDO()` pour supporter une connexion à votre base de données locale. (Laragon, Xampp, uWamp etc..)
-2. Modifier la base de données pour accepter une colonne supplémentaire `image` de type `VARCHAR(255)`.
-3. Modifier la fonciton qui récupère les infos d'un pokémon pour inclure l'image du pokémon.
-4. Vous devez ajouter la vue au controller qui se déclanche via la route: `route=pokemon&name=pikachu`, utilisez pour cela toutes les infos du pokémon.
-5. En ajoutant une vue, un méthode au controller qui se déclenche via la route `route=comparator&1=pikachu&2=pichu`, sur cette vue vous utiliserez les informations des 2 pokemons pour les comparer.
+Le code de ce repository est un pokedex fonctionnel. L'architecture MVC est respectée et fonctionne de la façon suivante:  
+    1. Les requêtes de l'utilisateur arrivent sur la page `index.php` du dossier public. 
+    2. Sur cette page, à l'aide de condition on déclanche la bonne méthode du controlleur en fonction des parametres de la requête (GET ou POST, route etc...)
+    3. Le controlleur déclanche la bonne méthode du model pour intéragir avec la donnée (ajout, suppression, modification et lecture)
+    4. Ensuite cette donnée récupérée via le model est passée à la "vue" (par example `list.php` dans le cas de l'index.)  
 
 
+### Connexion à l'API externe dans `retrieve_data_from_api`
+
+Les informations des pokémons nous viennent d'une source externe, vous pouvez voir la méthode privée `retrieve_data_from_api` du model pour voir comment elle le fait. (n'hésitez pas a copier le code et demander à chatgpt de l'expliquer si cela vous intéresse).
+
+
+## Cahier des charges
+
+On vous demande de:  
+    1. Créer une base de donnée, et modifier les informations de connexion du PokemonModelSQL pour se connecter à cette base. Ce qui devrait faire disparaitre l'erreur de connexion à la base de donnée. (très facile)
+    2. Modifier la base de données et le code pour récuperer, sauvegarder et afficher l'image du pokémon dans la vue de l'index. (facile)
+    3. Créer et utiliser une nouvelle vue pour afficher les informations d'un pokémon en particulier. (ex: `route=pokemon&name=pikachu`) (facile)
+    4. Créer et utiliser une nouvelle vue pour comparer deux pokémons entre eux. (ex: `route=comparator&1=pikachu&2=pichu`), attention cette fois cela demande aussi d'ajouter une méthode au Controlleur ainsi qu'une condition supplémentaire dans le `index.php` pour déclencher la bonne méthode du controlleur. (avancé)
+
+
+Attention de bien respecter l'architecture MVC, et de ne pas faire de requêtes SQL dans les vues ou dans le controlleur!!!
