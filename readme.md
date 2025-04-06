@@ -24,3 +24,11 @@ On vous demande de:
 
 
 Attention de bien respecter l'architecture MVC, et de ne pas faire de requêtes SQL dans les vues ou dans le controlleur!!!
+
+## Avancé: Moteur de recherche
+
+Pour la vue `list.php` vous pouvez ajouter un moteur de recherche pour filtrer les pokémons affichés.
+
+1. Recherche par nom: si l'utilisateur tape "Pi" il doit voir tous les pokémons qui contiennent "Pi" dans leur nom (ex: Pikachu, Pichu, etc...)
+2. Recherche par type: si l'utilisateur tape "Feu" il doit voir tous les pokémons qui contiennent "Feu" dans leur type (ex: Salamèche, Dracaufeu, etc...)
+3. Recherche global: Mettre en commun dans un seul input les deux recherches précédentes. L'utilisateur peut taper un nom ou un type et il doit voir tous les pokémons qui contiennent ce nom ou ce type.
