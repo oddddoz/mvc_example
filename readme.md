@@ -3,10 +3,13 @@
 ## Architecture MVC mis en place.
 
 Le code de ce repository est un pokedex fonctionnel. L'architecture MVC est respectée et fonctionne de la façon suivante:  
-    1. Les requêtes de l'utilisateur arrivent sur la page `index.php` du dossier public. 
-    2. Sur cette page, à l'aide de condition on déclanche la bonne méthode du controlleur en fonction des parametres de la requête (GET ou POST, route etc...)
-    3. Le controlleur déclanche la bonne méthode du model pour intéragir avec la donnée (ajout, suppression, modification et lecture)
-    4. Ensuite cette donnée récupérée via le model est passée à la "vue" (par example `list.php` dans le cas de l'index.)  
+1. Les requêtes de l'utilisateur arrivent sur la page `index.php` du dossier public.
+
+2. Sur cette page, à l'aide de condition on déclanche la bonne méthode du controlleur en fonction des parametres de la requête (GET ou POST, route etc...)
+
+3. Le controlleur déclanche la bonne méthode du model pour intéragir avec la donnée (ajout, suppression, modification et lecture)
+
+4. Ensuite cette donnée récupérée via le model est passée à la "vue" (par example `list.php` dans le cas de l'index.)  
 
 
 ### Connexion à l'API externe dans `retrieve_data_from_api`
